@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ba2avrry61088" path="res://scenes/big-asteroid.tscn" id="3_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://c70ukjlkr7wdx" path="res://scenes/player.tscn" id="3_tefeu"]
 [ext_resource type="PackedScene" uid="uid://clwl5bielge5d" path="res://scenes/wall.tscn" id="4_o6xl0"]
+[ext_resource type="Script" uid="uid://dub6xc7fu6rrc" path="res://scenes/canvas_layer.gd" id="6_tefeu"]
 
 [node name="Main" type="Node2D" unique_id=1508590332]
 script = ExtResource("1_jyhfs")
@@ -12,6 +13,7 @@ asteroid_scene = ExtResource("2_tbgi4")
 big_asteroid_scene = ExtResource("3_tbgi4")
 
 [node name="Player" parent="." unique_id=6870698 instance=ExtResource("3_tefeu")]
+visibility_layer = 3
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=397649100]
 position = Vector2(0, -72)
@@ -37,10 +39,41 @@ position = Vector2(0, -419)
 position = Vector2(40, -516)
 
 [node name="AsteroidTimer" type="Timer" parent="." unique_id=957685350]
+wait_time = 0.5
 autostart = true
 
-[node name="BigAstroidTimer" type="Timer" parent="." unique_id=616089794]
+[node name="BigAsteroidTimer" type="Timer" parent="." unique_id=616089794]
+wait_time = 0.5
 autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=669711110]
+process_mode = 3
+layer = 2
+script = ExtResource("6_tefeu")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=60884228]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 72
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SubLabel" type="Label" parent="CanvasLayer/Label" unique_id=1507949479]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 63.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press any key to play again"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]
-[connection signal="timeout" from="BigAstroidTimer" to="." method="_on_big_astroid_timer_timeout"]
+[connection signal="timeout" from="BigAsteroidTimer" to="." method="_on_big_astroid_timer_timeout"]

@@ -54,7 +54,7 @@ shape = SubResource("RectangleShape2D_xysws")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1710723377]
 sprite_frames = SubResource("SpriteFrames_seox3")
 autoplay = "default"
-frame_progress = 0.41223848
+frame_progress = 0.271543
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=717167244]
 rotation = 0.7853982
