@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bexa52pb88odn"]
+
+[ext_resource type="Script" uid="uid://bcgftgpka6bj7" path="res://scripts/asteroid.gd" id="1_6mo6b"]
+[ext_resource type="Texture2D" uid="uid://cgfu0sn423ce1" path="res://assets/asteroid-idle.png" id="1_akfqu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
+size = Vector2(7, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
+atlas = ExtResource("1_akfqu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uy6h"]
+atlas = ExtResource("1_akfqu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4w8v"]
+atlas = ExtResource("1_akfqu")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwavj"]
+atlas = ExtResource("1_akfqu")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nenq2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ra3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uy6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4w8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwavj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Area2D" type="Area2D" unique_id=1691426453]
+script = ExtResource("1_6mo6b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=31596749]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_md0e3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1212411213]
+sprite_frames = SubResource("SpriteFrames_nenq2")
+autoplay = "default"
+frame_progress = 0.46950817
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1638816464]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

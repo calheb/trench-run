@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cvdkbjv2clqcc"]
+
+[ext_resource type="Script" uid="uid://sm1754oswj0x" path="res://scripts/main.gd" id="1_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bexa52pb88odn" path="res://scenes/asteroid.tscn" id="2_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://ba2avrry61088" path="res://scenes/big-asteroid.tscn" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://c70ukjlkr7wdx" path="res://scenes/player.tscn" id="3_tefeu"]
+[ext_resource type="PackedScene" uid="uid://clwl5bielge5d" path="res://scenes/wall.tscn" id="4_o6xl0"]
+
+[node name="Main" type="Node2D" unique_id=1508590332]
+script = ExtResource("1_jyhfs")
+asteroid_scene = ExtResource("2_tbgi4")
+big_asteroid_scene = ExtResource("3_tbgi4")
+
+[node name="Player" parent="." unique_id=6870698 instance=ExtResource("3_tefeu")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=397649100]
+position = Vector2(0, -72)
+zoom = Vector2(6, 6)
+
+[node name="Walls" type="Node2D" parent="." unique_id=688745932]
+position = Vector2(0, -1)
+
+[node name="Left" parent="Walls" unique_id=2110494525 instance=ExtResource("4_o6xl0")]
+position = Vector2(-259, -190)
+rotation = 1.5707964
+scale = Vector2(60, 20)
+
+[node name="Right" parent="Walls" unique_id=619050013 instance=ExtResource("4_o6xl0")]
+position = Vector2(259, -190)
+rotation = 1.5707964
+scale = Vector2(60, 20)
+
+[node name="Asteroid" parent="." unique_id=1691426453 instance=ExtResource("2_tbgi4")]
+position = Vector2(0, -419)
+
+[node name="BigAsteroid" parent="." unique_id=1633329647 instance=ExtResource("3_tbgi4")]
+position = Vector2(40, -516)
+
+[node name="AsteroidTimer" type="Timer" parent="." unique_id=957685350]
+autostart = true
+
+[node name="BigAstroidTimer" type="Timer" parent="." unique_id=616089794]
+autostart = true
+
+[connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]
+[connection signal="timeout" from="BigAstroidTimer" to="." method="_on_big_astroid_timer_timeout"]

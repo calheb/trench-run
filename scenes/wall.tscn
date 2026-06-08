@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://clwl5bielge5d"]
+
+[ext_resource type="Texture2D" uid="uid://y8u7tea83b6e" path="res://assets/white-square.png" id="1_wykyb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ktk7"]
+size = Vector2(16, 16)
+
+[node name="Wall" type="Node2D" unique_id=1250657107]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1895861020]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1901862900]
+shape = SubResource("RectangleShape2D_2ktk7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1234737012]
+self_modulate = Color(0.5409905, 0.5409905, 0.5409905, 1)
+texture = ExtResource("1_wykyb")

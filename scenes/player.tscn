@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://c70ukjlkr7wdx"]
+
+[ext_resource type="Texture2D" uid="uid://cgfmnqjf0efeu" path="res://assets/ship-idle.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://b3uebmoaiw8yk" path="res://scripts/player.gd" id="1_g2els"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sh265"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onrkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3pqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqtel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sweqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hs0m")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_g2els"]
+points = PackedVector2Array(-5.3858542, 1.3787827, 2.1543417, -1.838377, 3.2315125, -1.838377, 7.540196, 0, 10.7717085, 1.3787827, 10.7717085, 1.838377, 5.3858542, 1.838377, 0, 1.838377, -5.3858542, 1.838377)
+
+[node name="Player" type="CharacterBody2D" unique_id=6870698]
+script = ExtResource("1_g2els")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1835811280]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_sh265")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.2720522
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=378734352]
+position = Vector2(-3, -2)
+scale = Vector2(0.9283578, 2.1758323)
+shape = SubResource("ConvexPolygonShape2D_g2els")
