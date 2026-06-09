@@ -4,11 +4,11 @@ extends Node2D
 @export var big_asteroid_scene: PackedScene
 
 func _ready():
-	$CanvasLayer/Label.visible = false
+	$CanvasLayer/GameOverText.visible = false
 
 func player_hit():
 	get_tree().paused = true
-	$CanvasLayer/Label.visible = true
+	$CanvasLayer/GameOverText.visible = true
 
 func _on_asteroid_timer_timeout():
 	var asteroid = asteroid_scene.instantiate()

@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dub6xc7fu6rrc" path="res://scenes/canvas_layer.gd" id="6_tefeu"]
 
 [node name="Main" type="Node2D" unique_id=1508590332]
+position = Vector2(-1, 1)
 script = ExtResource("1_jyhfs")
 asteroid_scene = ExtResource("2_tbgi4")
 big_asteroid_scene = ExtResource("3_tbgi4")
@@ -51,7 +52,7 @@ process_mode = 3
 layer = 2
 script = ExtResource("6_tefeu")
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=60884228]
+[node name="GameOverText" type="Label" parent="CanvasLayer" unique_id=60884228]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -62,7 +63,7 @@ text = "GAME OVER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SubLabel" type="Label" parent="CanvasLayer/Label" unique_id=1507949479]
+[node name="GameOverSubText" type="Label" parent="CanvasLayer/GameOverText" unique_id=1507949479]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
